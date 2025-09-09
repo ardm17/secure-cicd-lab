@@ -26,7 +26,7 @@ jobs:
     - name: Run dependency vulnerability scan
       run: |
         echo "🔍 Scanning dependencies for vulnerabilities..."
-        safety scan --json --output=safety-report.json || true
+        safety scan --save-as json safety-report.json || true
         
     - name: Run static analysis
       run: |
@@ -51,6 +51,7 @@ jobs:
           safety-report.json
           bandit-report.json
           semgrep-report.json
+
 
 
 
