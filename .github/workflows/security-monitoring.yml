@@ -40,7 +40,7 @@ jobs:
         
         # Check for common secret patterns
         grep -r -n -E "(password|passwd|pwd)\s*=\s*['\"][^'\"]*['\"]" . --exclude-dir=.git --exclude="*.md" || echo "No hardcoded passwords found"
-        grep -r -n -E "(api_key|apikey)\s*=\s*['\"][^'\"]*['\"]" . --exclude-dir=.git --exclude="*.md" || echo "No hardcoded API keys found"
+        grep -r -n -E "(api_key|API_KEY|apikey)\s*=\s*['\"][^'\"]*['\"]" . --exclude-dir=.git --exclude="*.md" || echo "No hardcoded API keys found"
         grep -r -n -E "(secret|token)\s*=\s*['\"][^'\"]*['\"]" . --exclude-dir=.git --exclude="*.md" || echo "No hardcoded secrets found"
         
     - name: Upload security reports
@@ -51,4 +51,5 @@ jobs:
           safety-report.json
           bandit-report.json
           semgrep-report.json
+
 
