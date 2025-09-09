@@ -26,7 +26,7 @@ jobs:
     - name: Run dependency vulnerability scan
       run: |
         echo "🔍 Scanning dependencies for vulnerabilities..."
-        safety check --json --output safety-report.json || true
+        safety check --json --output=safety-report.json || true
         
     - name: Run static analysis
       run: |
