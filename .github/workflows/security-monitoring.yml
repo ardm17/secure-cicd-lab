@@ -42,7 +42,7 @@ jobs:
         set -e
         grep -r -n -E "(password|passwd|pwd)\s*=\s*['\"][^'\"]*['\"]" . --exclude-dir=.git --exclude="*.md" || echo "No hardcoded passwords found"
         if grep -r -n -E "(api_key|apikey)\s*=\s*['\"][^'\"]*['\"]" . --exclude-dir=.git --exclude="*.md"; then 
-            echo found
+            echo "API Key Found, exiting workflow."
             exit 1
         else
             echo "No hardcoded API keys found"
@@ -57,6 +57,7 @@ jobs:
           safety-report.json
           bandit-report.json
           semgrep-report.json
+
 
 
 
